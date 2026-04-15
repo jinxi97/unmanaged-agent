@@ -8,7 +8,7 @@ Open sourced agent infra.
 
 Define the model, system prompt, tools, MCP servers, and skills. Create the agent once and reference it by ID across sessions.
 
-> For the first version, only [pi-agent](https://github.com/anthropics/pi-agent) is supported as the agent runtime. Support for [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk), [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), and [Google ADK](https://github.com/google/adk-python) is coming soon.
+> For the first version, only [pi-agent](https://github.com/badlogic/pi-mono/) is supported as the agent runtime. Support for [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk), [OpenAI Agents SDK](https://github.com/openai/openai-agents-python), and [Google ADK](https://github.com/google/adk-python) is coming soon.
 
 ### 2. Create an Environment
 
@@ -27,3 +27,4 @@ Send user messages as events. The agent autonomously executes tools and streams 
 ## Roadmap
 
 - [ ] **Metadata storage**: Currently using SQLite. PostgreSQL/Neon DB support is on the way.
+- [ ] **SDKs**: Python and TypeScript client SDKs.
