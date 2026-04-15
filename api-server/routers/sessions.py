@@ -72,10 +72,9 @@ async def delete_session(session_id: str, db: aiosqlite.Connection = Depends(get
 async def send_event(session_id: str, body: EventCreate, db: aiosqlite.Connection = Depends(get_db)):
     """Send an event to the session and stream back agent responses via SSE."""
     # Look up session, agent, and environment
-    # Look up session, agent, and environment
     cursor = await db.execute(
         """SELECT s.*, a.model, a.runtime, a.system_prompt,
-                  e.sandbox_url
+                  e.sandbox_id
            FROM sessions s
            JOIN agents a ON s.agent_id = a.id
            JOIN environments e ON s.environment_id = e.id
@@ -107,7 +106,7 @@ async def send_event(session_id: str, body: EventCreate, db: aiosqlite.Connectio
             model=session_data["model"],
             system_prompt=session_data["system_prompt"],
             message=message,
-            sandbox_url=session_data["sandbox_url"],
+            sandbox_id=session_data["sandbox_id"],
         ):
             # Persist each agent event
             resp_event_id = str(uuid.uuid4())
